@@ -8,9 +8,9 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Products</h3>
             <ul className="space-y-2">
-              <li><a href="/products/ml" className="text-sm text-muted-foreground hover:text-primary">Machine Learning</a></li>
-              <li><a href="/products/nlp" className="text-sm text-muted-foreground hover:text-primary">NLP</a></li>
-              <li><a href="/products/analytics" className="text-sm text-muted-foreground hover:text-primary">Analytics</a></li>
+              <li><a href="https://backdrop-ai-one.vercel.app/" className="text-sm text-muted-foreground hover:text-primary">Backrop AI</a></li>
+              <li><a href="/products/nlp" className="text-sm text-muted-foreground hover:text-primary">Template</a></li>
+              <li><a href="/products/analytics" className="text-sm text-muted-foreground hover:text-primary">Template</a></li>
             </ul>
           </div>
 

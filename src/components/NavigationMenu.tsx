@@ -7,30 +7,30 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Brain, Code, LineChart, Users } from "lucide-react";
+import { Code, LineChart, Pencil, Users } from "lucide-react";
 import React from "react";
 
 const components: { title: string; href: string; description: string; icon: React.ReactNode }[] = [
   {
-    title: "Machine Learning",
-    href: "/products/ml",
-    description: "Advanced ML models for complex problem-solving.",
-    icon: <Brain className="h-6 w-6" />,
+    title: "Backdrop AI",
+    href: "https://backdrop-ai-one.vercel.app/",
+    description: "AI Powered Image Editor & with a twist of Background.",
+    icon: <Pencil className="h-6 w-6" />,
   },
   {
-    title: "Natural Language Processing",
+    title: "Template",
     href: "/products/nlp",
     description: "Process and understand human language at scale.",
     icon: <Code className="h-6 w-6" />,
   },
   {
-    title: "Predictive Analytics",
+    title: "Template",
     href: "/products/analytics",
     description: "Data-driven insights for informed decision making.",
     icon: <LineChart className="h-6 w-6" />,
   },
   {
-    title: "AI Consulting",
+    title: "Template",
     href: "/services/consulting",
     description: "Expert guidance for AI implementation.",
     icon: <Users className="h-6 w-6" />,
