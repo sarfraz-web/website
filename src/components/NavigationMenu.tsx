@@ -7,7 +7,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Code, LineChart, Pencil, Users } from "lucide-react";
+import { Cross, Pencil } from "lucide-react";
 import React from "react";
 
 const components: { title: string; href: string; description: string; icon: React.ReactNode }[] = [
@@ -21,19 +21,19 @@ const components: { title: string; href: string; description: string; icon: Reac
     title: "Template",
     href: "/products/nlp",
     description: "Process and understand human language at scale.",
-    icon: <Code className="h-6 w-6" />,
+    icon: <Cross className="h-6 w-6" />,
   },
   {
     title: "Template",
     href: "/products/analytics",
     description: "Data-driven insights for informed decision making.",
-    icon: <LineChart className="h-6 w-6" />,
+    icon: <Cross className="h-6 w-6" />,
   },
   {
     title: "Template",
     href: "/services/consulting",
     description: "Expert guidance for AI implementation.",
-    icon: <Users className="h-6 w-6" />,
+    icon: <Cross className="h-6 w-6" />,
   },
 ];
 
