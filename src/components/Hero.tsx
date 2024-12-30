@@ -22,8 +22,8 @@ export function Hero() {
             <div className="mb-8 flex justify-center">
               <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-muted-foreground ring-1 ring-gray-900/50 hover:ring-gray-900/5 bg-white/300 backdrop-blur-md shadow-lg overflow-hidden text-white">
                 Announcing our next-gen AI platform.{" "}
-                <a href="/announcement" className="font-semibold text-primary relative text-black">
-                  <span className="absolute inset-0 text-black" aria-hidden="true" />
+                <a href="/announcement" className="font-semibold text-primary relative">
+                  <span className="absolute inset-0 " aria-hidden="true" />
                   Read more <span aria-hidden="true">&rarr;</span>
                   <div className="shine absolute inset-0 bg-gradient-to-r from-transparent to-white opacity-30 transform -rotate-45 animate-shine"></div>
                 </a>

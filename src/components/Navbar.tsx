@@ -37,7 +37,7 @@ export function Navbar() {
           AIVOLVE
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 mr-4">
           {/* <Link to="/login">
             <Button variant="ghost">Sign In</Button>
           </Link> */}
