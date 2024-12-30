@@ -45,10 +45,10 @@ export function Features() {
           <h2 className="text-base font-semibold leading-7 text-primary">
             Everything you need
           </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+          <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-white">
             AI Solutions for Every Need
           </p>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          <p className="mt-6 text-lg leading-8 text-muted-foreground text-white-400">
             Our comprehensive suite of AI tools and services helps businesses transform their operations and stay ahead of the competition.
           </p>
         </div>

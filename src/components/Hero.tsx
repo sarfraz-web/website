@@ -20,10 +20,10 @@ export function Hero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-8 flex justify-center">
-              <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-muted-foreground ring-1 ring-gray-900/50 hover:ring-gray-900/5 bg-white/300 backdrop-blur-md shadow-lg overflow-hidden">
+              <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-muted-foreground ring-1 ring-gray-900/50 hover:ring-gray-900/5 bg-white/300 backdrop-blur-md shadow-lg overflow-hidden text-white">
                 Announcing our next-gen AI platform.{" "}
-                <a href="/announcement" className="font-semibold text-primary relative">
-                  <span className="absolute inset-0" aria-hidden="true" />
+                <a href="/announcement" className="font-semibold text-primary relative text-black">
+                  <span className="absolute inset-0 text-black" aria-hidden="true" />
                   Read more <span aria-hidden="true">&rarr;</span>
                   <div className="shine absolute inset-0 bg-gradient-to-r from-transparent to-white opacity-30 transform -rotate-45 animate-shine"></div>
                 </a>
@@ -41,7 +41,7 @@ export function Hero() {
                 className="mr-60"
               >
                 <h1
-                  className="text-4xl font-bold tracking-tight text-center sm:text-6xl whitespace-nowrap"
+                  className="text-4xl font-bold tracking-tight text-center sm:text-6xl whitespace-nowrap text-white"
                 >
                   Unlock The Power of AI For{" "}
                   <br />
@@ -76,7 +76,7 @@ export function Hero() {
                 Get Started
               </Button>
               <Link to="/demo">
-              <Button size="lg" variant="outline" className="border-secondary hover:bg-secondary/10">
+              <Button size="lg" variant="outline" className="border-secondary hover:bg-secondary/10 text-white">
                 Demo
             </Button>
             </Link>

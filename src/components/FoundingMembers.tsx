@@ -95,11 +95,12 @@ export function FoundingMembers() {
   };
 
   return (
-    <div className="w-full py-24 overflow-hidden bg-gradient-to-r from-[#FF4D9E]/10 via-[#A349E5]/10 to-[#4A90E2]/10 flex items-center justify-center">
-      <div className="container text-center">
+    <div className="w-full py-24 overflow-hidden bg-gradient-to-r from-[#1A202C]/10 via-[#2D3748]/10 to-[#4A5568]/10 flex items-center justify-center">
+
+      <div className="container max-w-7xl text-center">
         <div className="mb-12">
-          <h2 className="text-5xl ml-20 font-bold mb-4">Meet Our Founders</h2>
-          <p className="text-ml ml-20 text-muted-foreground">
+          <h2 className="text-5xl ml-20 font-bold mb-4 text-pink-300">Meet Our Founders</h2>
+          <p className="text-ml ml-20 text-muted-foreground ">
             The visionaries behind AIVOLVE's groundbreaking AI technology
           </p>
         </div>

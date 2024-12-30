@@ -6,7 +6,7 @@ export function Footer() {
           <div></div>
 
           <div>
-            <h3 className="font-semibold mb-4">Products</h3>
+            <h3 className="font-semibold mb-4 text-white">Products</h3>
             <ul className="space-y-2">
               <li><a href="https://backdrop-ai-one.vercel.app/" className="text-sm text-muted-foreground hover:text-primary">Backrop AI</a></li>
               <li><a href="/products/nlp" className="text-sm text-muted-foreground hover:text-primary">Template</a></li>
@@ -15,7 +15,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Company</h3>
+            <h3 className="font-semibold mb-4 text-white">Company</h3>
             <ul className="space-y-2">
               <li><a href="/blog" className="text-sm text-muted-foreground hover:text-primary">Blog</a></li>
               <li><a href="https://www.linkedin.com/company/aievolve/jobs/" className="text-sm text-muted-foreground hover:text-primary">Careers</a></li>
@@ -24,7 +24,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Legal</h3>
+            <h3 className="font-semibold mb-4 text-white">Legal</h3>
             <ul className="space-y-2">
               <li><a href="/about" className="text-sm text-muted-foreground hover:text-primary">About</a></li>
               <li><a href="/privacy" className="text-sm text-muted-foreground hover:text-primary">Privacy Policy</a></li>

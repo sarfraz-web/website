@@ -33,7 +33,7 @@ export function Navbar() {
           </Sheet>
         </div>
 
-        <div className="hidden md:block text-lg md:text-2xl lg:text-3xl font-bold absolute left-1/2 -translate-x-1/2">
+        <div className="hidden md:block text-lg md:text-2xl lg:text-3xl font-bold absolute left-1/2 -translate-x-1/2 text-white">
           AIVOLVE
         </div>
 
