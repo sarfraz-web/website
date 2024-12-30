@@ -2,9 +2,9 @@ export function TermsOfService() {
   return (
     <div className="container mx-auto py-24">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
+        <h1 className="text-4xl font-bold mb-8 text-white">Terms of Service</h1>
 
-        <div className="prose prose-neutral dark:prose-invert">
+        <div className="prose prose-neutral dark:prose-invert text-white">
           <p>
             Welcome to <strong>AIVOLVE</strong>, a technology-based SaaS company specializing in NLP chatbots, Backdrop AI, generative AI tools, and other innovative AI solutions. By accessing or using our services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree with these Terms, you may not access or use our services.
           </p>

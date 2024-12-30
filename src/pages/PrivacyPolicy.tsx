@@ -2,9 +2,9 @@ export function PrivacyPolicy() {
   return (
     <div className="container mx-auto py-24">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
+        <h1 className="text-4xl font-bold mb-8 text-white">Privacy Policy</h1>
 
-        <div className="prose prose-neutral dark:prose-invert">
+        <div className="prose prose-neutral dark:prose-invert text-white font-bold">
           <p className="mb-6">
             At <strong>AIVOLVE</strong>, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our services. By accessing or using our website and services, you agree to the collection and use of information as described in this policy.
           </p>

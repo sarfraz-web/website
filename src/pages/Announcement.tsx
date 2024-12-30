@@ -5,7 +5,7 @@ export function AnnouncementPage() {
   return (
     <div className="container mx-auto py-24">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-bold mb-4">Latest Announcements</h1>
+        <h1 className="text-4xl font-bold mb-4 text-white">Latest Announcements</h1>
         <p className="text-lg text-muted-foreground">
           Stay updated with the latest developments, news, and milestones from AIVOLVE.
         </p>
@@ -93,7 +93,7 @@ export function AnnouncementPage() {
 
       {/* Previous Announcements */}
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Previous Announcements</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-white">Previous Announcements</h2>
         <div className="space-y-6">
           {/* Policy and Terms Update */}
           <div className="flex items-start gap-8">
@@ -101,22 +101,22 @@ export function AnnouncementPage() {
               <div className="flex items-start gap-4">
                 <Users className="h-6 w-6 text-primary mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Policy Updates</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Policy Updates</h3>
                   <p className="text-muted-foreground">
                     Our Privacy Policy has been updated. Make sure to go through it.
                   </p>
-                  <a href="/privacy" className="text-primary font-semibold">Read Privacy Policy</a>
+                  <a href="/privacy" className="text-primary font-semibold text-white">Read Privacy Policy</a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <Users className="h-6 w-6 text-primary mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Terms of Service Update</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Terms of Service Update</h3>
                   <p className="text-muted-foreground">
                     Our Terms of Service has been updated. Make sure to go through it.
                   </p>
-                  <a href="/terms" className="text-primary font-semibold">Read Terms of Service</a>
+                  <a href="/terms" className="text-primary font-semibold text-white">Read Terms of Service</a>
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@ export function AnnouncementPage() {
 
       {/* Newsletter Subscription */}
       <div className="max-w-3xl mx-auto mt-16 text-center">
-        <h2 className="text-2xl font-semibold text-muted-foreground mb-4">
+        <h2 className="text-2xl font-semibold text-muted-foreground mb-4 text-white">
           Subscribe to Our Newsletter
         </h2>
         <p className="text-lg text-muted-foreground">

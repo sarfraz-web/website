@@ -51,12 +51,12 @@ export function About() {
 
       {/* Values Section */}
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Our Values</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-white">Our Values</h2>
         <div className="space-y-6">
           <div className="flex items-start gap-4">
             <Award className="h-6 w-6 text-primary mt-1" />
             <div>
-              <h3 className="text-xl font-semibold mb-2">Excellence</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">Excellence</h3>
               <p className="text-muted-foreground">
                 We aim for excellence in everything we do, from the technology we build to the services we provide. 
                 Our AI solutions are designed to help businesses thrive with cutting-edge capabilities while ensuring ease of use.
@@ -66,7 +66,7 @@ export function About() {
           <div className="flex items-start gap-4">
             <Users className="h-6 w-6 text-primary mt-1" />
             <div>
-              <h3 className="text-xl font-semibold mb-2">Collaboration</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">Collaboration</h3>
               <p className="text-muted-foreground">
                 Collaboration is at the heart of our success. We work closely with our clients to understand their unique 
                 challenges and provide AI solutions that not only integrate with their systems but also grow alongside their 
@@ -77,7 +77,7 @@ export function About() {
           <div className="flex items-start gap-4">
             <Globe className="h-6 w-6 text-primary mt-1" />
             <div>
-              <h3 className="text-xl font-semibold mb-2">Global Impact</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">Global Impact</h3>
               <p className="text-muted-foreground">
                 Our goal is to shape the future of AI globally. We believe in the transformative power of AI to solve complex 
                 problems, improve industries, and enhance lives worldwide. By making AI more accessible, we contribute to a 
@@ -88,7 +88,7 @@ export function About() {
           <div className="flex items-start gap-4">
             <Layers className="h-6 w-6 text-primary mt-1" />
             <div>
-              <h3 className="text-xl font-semibold mb-2">Innovation</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">Innovation</h3>
               <p className="text-muted-foreground">
                 Innovation is at the core of our work. We are constantly pushing the boundaries of what’s possible with AI, 
                 continuously improving our technology to ensure it stays at the cutting edge and meets the needs of a rapidly 
@@ -101,8 +101,8 @@ export function About() {
 
       {/* Join Us Section */}
       <div className="max-w-3xl mx-auto mt-16 text-center">
-        <h2 className="text-2xl font-semibold text-muted-foreground mb-4 flex items-center justify-center gap-2">
-          <UserPlus className="h-6 w-6 text-primary" /> Join Us on Our Journey
+        <h2 className="text-2xl font-semibold text-muted-foreground mb-4 flex items-center justify-center gap-2 text-white">
+          <UserPlus className="h-6 w-6 text-primary " /> Join Us on Our Journey
         </h2>
         <p className="text-lg text-muted-foreground">
           At AIVOLVE, we’re building a future where AI is accessible to all. Whether you’re a business looking to integrate 
