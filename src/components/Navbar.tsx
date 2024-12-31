@@ -37,7 +37,7 @@ export function Navbar() {
           AIVOLVE
         </div>
 
-        <div className="fixed top-3 right-0 left-0 z-50 flex items-center justify-end gap-4 pr-6 md:pr-12">
+        <div className="flex items-center gap-4">
           {/* <Link to="/login">
             <Button variant="ghost">Sign In</Button>
           </Link> */}
@@ -48,4 +48,4 @@ export function Navbar() {
       </nav>
     </header>
   );
-}
+} 
