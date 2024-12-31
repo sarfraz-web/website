@@ -33,11 +33,11 @@ export function Navbar() {
           </Sheet>
         </div>
 
-        <div className="hidden md:block text-lg md:text-2xl lg:text-3xl font-bold absolute left-1/2 -translate-x-1/2 text-white">
+        <div className="hidden md:block text-lg md:text-2xl lg:text-3xl font-bold absolute left-1/2 -translate-x-1/2">
           AIVOLVE
         </div>
 
-        <div className="flex items-center gap-4 mr-4">
+        <div className="fixed top-3 right-0 left-0 z-50 flex items-center justify-end gap-4 pr-6 md:pr-12">
           {/* <Link to="/login">
             <Button variant="ghost">Sign In</Button>
           </Link> */}
