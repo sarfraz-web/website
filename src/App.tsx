@@ -22,7 +22,6 @@ function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/trusted" element={<TrustedBy />} />
           <Route path="/about" element={<About />} />
           <Route path="/docs" element={<Documentation />} />
           <Route path="/blog" element={<Blog />} />
