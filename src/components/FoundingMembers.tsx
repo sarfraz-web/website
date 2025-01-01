@@ -99,7 +99,7 @@ export function FoundingMembers() {
 
       <div className="container max-w-7xl text-center ml-8">
         <div className="mb-12">
-          <h2 className="text-4xl ml-20 font-bold mb-4 text-pink-300 whitespace-nowrap ">Meet Our Founders</h2>
+          <h2 className="text-5xl ml-20 font-bold mb-4 text-pink-300">Meet Our Founders</h2>
           <p className="text-ml ml-20 text-muted-foreground ">
             The visionaries behind AIVOLVE's groundbreaking AI technology
           </p>
