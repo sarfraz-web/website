@@ -13,7 +13,7 @@ export function TrustedByBanner() {
   return (
     <div className="bg-black py-8 overflow-hidden">
       <div className="flex flex-col items-center mb-10">
-        <h2 className="text-white text-2xl font-bold mb-2">Trusted By</h2>
+        <h2 className="text-white text-3xl font-bold mb-2">Trusted By</h2>
         <div className="h-1 w-20 bg-[#FF4D9E]"></div>
       </div>
 
