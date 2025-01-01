@@ -3,6 +3,7 @@ import { Brain } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { TrustedByBanner } from "./TrustedByBanner";
 
 export function Hero() {
   return (
@@ -82,6 +83,11 @@ export function Hero() {
             </Link>
             </div>
           </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <TrustedByBanner />
           <div className="mt-16 flex justify-center sm:mt-24">
             <div className="relative max-w-[996px] max-h-[651px] rounded-xl bg-gradient-to-r from-secondary/5 to-primary/5 p-4 ring-1 ring-inset ring-gray-900/10">
               <img
