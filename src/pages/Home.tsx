@@ -1,12 +1,12 @@
 import { Hero } from '@/components/Hero';
 import { Features } from '@/components/Features';
-// import { TrustedBy } from '@/components/TrustedBy';
+import { TrustedByBanner } from '@/components/TrustedByBanner';
 
 export function Home() {
   return (
     <div>
       <Hero />
-      {/* <TrustedBy/> */}
+      <TrustedByBanner/>
       <Features />
     </div>
   );
