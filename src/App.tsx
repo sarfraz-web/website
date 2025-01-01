@@ -12,6 +12,7 @@ import { JobPage } from './pages/Jobs';
 //import { Login } from './pages/Login';
 import { GetStarted } from './pages/GetStarted';
 import { Demo } from './pages/LiveDemo';
+import { Analytics } from "@vercel/analytics/react"
 // import { TrustedBy } from './components/TrustedBy'; 
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/demo" element={<Demo />} />
         </Routes>
       </main>
+      <Analytics />
       <Footer />
     </div>
   );
