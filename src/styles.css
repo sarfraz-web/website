@@ -135,7 +135,8 @@
   margin-left: 20%;
 }
 
-@keyframes scroll {
+
+@keyframes marquee {
   0% {
     transform: translateX(0);
   }
@@ -144,9 +145,6 @@
   }
 }
 
-.animate-scroll {
-  display: flex;
-  animation: scroll 120s linear infinite;
+.animate-marquee {
+  animation: marquee 10s linear infinite;
 }
-
-
