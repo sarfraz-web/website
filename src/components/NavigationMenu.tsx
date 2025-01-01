@@ -83,9 +83,6 @@ export function NavigationMenuDemo() {
               <ListItem href="https://www.linkedin.com/company/aievolve/jobs/" title="Careers">
                 Join our growing team
               </ListItem>
-              <ListItem href="mailto:tech.aivolve@gmail.com" title="Contact">
-                Get in touch with us
-              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>

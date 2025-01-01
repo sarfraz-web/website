@@ -6,7 +6,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { NavigationMenuDemo } from "./NavigationMenu";
-import { Link } from "react-router-dom";
 
 export function Navbar() {
   return (
@@ -36,16 +35,13 @@ export function Navbar() {
         <div className="hidden md:block text-lg md:text-2xl lg:text-3xl font-bold absolute left-1/2 -translate-x-1/2 text-white">
           AIVOLVE
         </div>
-
-        <div className="flex items-center gap-4">
-          {/* <Link to="/login">
-            <Button variant="ghost">Sign In</Button>
-          </Link> */}
-          <Link to="/get-started">
-            <Button>Get Started</Button>
-          </Link>
+{/* Dekh madarchod Aquib aise hota h button move */}
+        <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+          <a href="mailto:tech.aivolve@gmail.com">
+            <Button>Contact Us</Button>
+          </a>
         </div>
       </nav>
     </header>
   );
-} 
+}
