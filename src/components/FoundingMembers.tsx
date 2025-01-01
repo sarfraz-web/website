@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Github, Linkedin, Twitter } from "lucide-react";
@@ -19,7 +19,7 @@ const founders = [
     name: "Mohammed Sarfraz",
     role: "COO & Co-founder",
     image: "/Founders/Sarfraz.jpg",
-  bio: "SOFTWARE ENGINEER",
+    bio: "SOFTWARE ENGINEER",
     links: {
       twitter: "https://twitter.com",
       linkedin: "https://www.linkedin.com/in/mohammad-sarfraz-043118258",
@@ -52,11 +52,10 @@ const founders = [
 
 const duplicatedFounders = [...founders, ...founders];
 
-
-
 export function FoundingMembers() {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const innerScrollerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     if (!scrollerRef.current || !innerScrollerRef.current) return;
@@ -77,6 +76,12 @@ export function FoundingMembers() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!innerScrollerRef.current) return;
+    
+    innerScrollerRef.current.style.animationPlayState = isPaused ? 'paused' : 'running';
+  }, [isPaused]);
+
   const getDirection = () => {
     if (!scrollerRef.current || !innerScrollerRef.current) return;
 
@@ -90,17 +95,26 @@ export function FoundingMembers() {
 
   const startAnimation = () => {
     if (!innerScrollerRef.current) return;
-
     innerScrollerRef.current.style.animation = "scroll 40s linear infinite";
   };
 
   return (
-    <div className="w-full py-24 overflow-hidden bg-gradient-to-r from-[#1A202C]/10 via-[#2D3748]/10 to-[#4A5568]/10 flex items-center justify-center ">
+    <div className="w-full py-24 overflow-hidden bg-gradient-to-r from-[#1A202C]/10 via-[#2D3748]/10 to-[#4A5568]/10 flex items-center justify-center">
+      <style>{`
+        @keyframes scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
 
       <div className="container max-w-7xl text-center ml-8">
         <div className="mb-12">
-          <h2 className="text-5xl ml-20 font-bold mb-4 text-pink-300">Meet Our Founders</h2>
-          <p className="text-ml ml-20 text-muted-foreground ">
+          <h2 className="text-4xl ml-20 font-bold mb-4 text-pink-300 whitespace-nowrap">Meet Our Founders</h2>
+          <p className="text-ml ml-20 text-muted-foreground">
             The visionaries behind AIVOLVE's groundbreaking AI technology
           </p>
         </div>
@@ -112,22 +126,25 @@ export function FoundingMembers() {
       >
         <div
           ref={innerScrollerRef}
-          className="flex gap-4 inner-scroller py-4"
+          className="flex gap-4 inner-scroller py-4 transition-all duration-300"
+          style={{
+            willChange: 'transform',
+          }}
         >
           {duplicatedFounders.map((founder, idx) => (
             <Card
               key={`${founder.name}-${idx}`}
-              className="relative flex-shrink-0 w-[300px] overflow-hidden transition-all duration-300 group" // Keep `group` here for hover effects
+              className="relative flex-shrink-0 w-[300px] overflow-hidden transition-all duration-300 group"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
             >
-              {/* Hover effect for the entire card */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#FF4D9E]/20 via-[#A349E5]/20 to-[#4A90E2]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Card content */}
               <CardContent className="p-6 z-10 relative">
                 <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden">
                   <img
                     src={founder.image}
                     alt={founder.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" // Image scale on hover (applies only to the card it's in)
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
 
