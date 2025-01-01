@@ -14,8 +14,6 @@ import { GetStarted } from './pages/GetStarted';
 import { Demo } from './pages/LiveDemo';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from '@vercel/speed-insights/react';
-// import { TrustedBy } from './components/TrustedBy'; 
-
 
 function App() {
   return (
@@ -24,7 +22,7 @@ function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/trusted" element={<TrustedBy />} /> */}
+          <Route path="/trusted" element={<TrustedBy />} />
           <Route path="/about" element={<About />} />
           <Route path="/docs" element={<Documentation />} />
           <Route path="/blog" element={<Blog />} />
