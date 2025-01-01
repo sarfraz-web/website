@@ -55,7 +55,7 @@ const duplicatedFounders = [...founders, ...founders];
 export function FoundingMembers() {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const innerScrollerRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
+  const [scrollWidth, setScrollWidth] = useState(0);
 
   useEffect(() => {
     if (!scrollerRef.current || !innerScrollerRef.current) return;
@@ -68,46 +68,57 @@ export function FoundingMembers() {
       }
     });
 
-    getDirection();
-    window.addEventListener("resize", getDirection);
-
-    return () => {
-      window.removeEventListener("resize", getDirection);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!innerScrollerRef.current) return;
-    
-    innerScrollerRef.current.style.animationPlayState = isPaused ? 'paused' : 'running';
-  }, [isPaused]);
-
-  const getDirection = () => {
-    if (!scrollerRef.current || !innerScrollerRef.current) return;
-
-    const scrollerWidth = scrollerRef.current.offsetWidth;
-    const scrollerContentWidth = innerScrollerRef.current.scrollWidth;
-
-    if (scrollerContentWidth > scrollerWidth) {
-      startAnimation();
+    if (innerScrollerRef.current) {
+      setScrollWidth(innerScrollerRef.current.scrollWidth / 2);
     }
-  };
 
-  const startAnimation = () => {
-    if (!innerScrollerRef.current) return;
-    innerScrollerRef.current.style.animation = "scroll 40s linear infinite";
-  };
+    const handleResize = () => {
+      if (innerScrollerRef.current) {
+        setScrollWidth(innerScrollerRef.current.scrollWidth / 2);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="w-full py-24 overflow-hidden bg-gradient-to-r from-[#1A202C]/10 via-[#2D3748]/10 to-[#4A5568]/10 flex items-center justify-center">
       <style>{`
         @keyframes scroll {
-          from {
+          0% {
             transform: translateX(0);
           }
-          to {
-            transform: translateX(-50%);
+          100% {
+            transform: translateX(-${scrollWidth}px);
           }
+        }
+
+        .scroll-container {
+          animation: scroll 40s linear infinite;
+        }
+
+        .scroll-container:hover {
+          animation-play-state: paused;
+        }
+
+        .founder-card {
+          transition: all 0.3s ease-in-out;
+          background: white;
+        }
+
+        .founder-card:hover {
+          transform: translateY(-10px) scale(1.02);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          z-index: 10;
+        }
+
+        .social-icon {
+          transition: transform 0.2s ease-in-out;
+        }
+
+        .social-icon:hover {
+          transform: translateY(-3px);
         }
       `}</style>
 
@@ -122,11 +133,11 @@ export function FoundingMembers() {
 
       <div
         ref={scrollerRef}
-        className="max-w-7xl mx-auto scroller relative"
+        className="max-w-7xl mx-auto scroller relative overflow-hidden"
       >
         <div
           ref={innerScrollerRef}
-          className="flex gap-4 inner-scroller py-4 transition-all duration-300"
+          className="flex gap-4 py-4 scroll-container"
           style={{
             willChange: 'transform',
           }}
@@ -134,13 +145,11 @@ export function FoundingMembers() {
           {duplicatedFounders.map((founder, idx) => (
             <Card
               key={`${founder.name}-${idx}`}
-              className="relative flex-shrink-0 w-[300px] overflow-hidden transition-all duration-300 group"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
+              className="founder-card relative flex-shrink-0 w-[300px] overflow-hidden group bg-white"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FF4D9E]/20 via-[#A349E5]/20 to-[#4A90E2]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#FF4D9E]/10 via-[#A349E5]/10 to-[#4A90E2]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <CardContent className="p-6 z-10 relative">
-                <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden">
+                <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden shadow-lg transform transition-transform duration-300 group-hover:scale-105">
                   <img
                     src={founder.image}
                     alt={founder.name}
@@ -148,36 +157,27 @@ export function FoundingMembers() {
                   />
                 </div>
 
-                <div className="text-center">
-                  <h3 className="text-xl font-semibold mb-1">{founder.name}</h3>
-                  <p className="text-sm text-primary mb-2">{founder.role}</p>
-                  <p className="text-sm text-muted-foreground mb-4">{founder.bio}</p>
+                <div className="text-center transform transition-transform duration-300">
+                  <h3 className="text-xl font-semibold mb-1 text-gray-800 group-hover:text-pink-500">{founder.name}</h3>
+                  <p className="text-sm text-gray-600 mb-2 group-hover:text-purple-500">{founder.role}</p>
+                  <p className="text-sm text-gray-500 mb-4">{founder.bio}</p>
 
                   <div className="flex justify-center gap-4">
                     <a
                       href={founder.links.twitter}
-                      className={cn(
-                        "p-2 rounded-full transition-colors duration-200",
-                        "hover:bg-[#FF4D9E]/10 text-[#FF4D9E]"
-                      )}
+                      className="social-icon p-2 rounded-full transition-all duration-200 hover:bg-[#FF4D9E]/10 text-[#FF4D9E]"
                     >
                       <Twitter className="w-4 h-4" />
                     </a>
                     <a
                       href={founder.links.linkedin}
-                      className={cn(
-                        "p-2 rounded-full transition-colors duration-200",
-                        "hover:bg-[#A349E5]/10 text-[#A349E5]"
-                      )}
+                      className="social-icon p-2 rounded-full transition-all duration-200 hover:bg-[#A349E5]/10 text-[#A349E5]"
                     >
                       <Linkedin className="w-4 h-4" />
                     </a>
                     <a
                       href={founder.links.github}
-                      className={cn(
-                        "p-2 rounded-full transition-colors duration-200",
-                        "hover:bg-[#4A90E2]/10 text-[#4A90E2]"
-                      )}
+                      className="social-icon p-2 rounded-full transition-all duration-200 hover:bg-[#4A90E2]/10 text-[#4A90E2]"
                     >
                       <Github className="w-4 h-4" />
                     </a>
