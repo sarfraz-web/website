@@ -55,6 +55,17 @@ export function FoundingMembers() {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const innerScrollerRef = useRef<HTMLDivElement>(null);
   const [scrollWidth, setScrollWidth] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (!scrollerRef.current || !innerScrollerRef.current) return;
@@ -82,7 +93,7 @@ export function FoundingMembers() {
   }, []);
 
   return (
-    <div className="w-full py-24 overflow-hidden bg-gradient-to-r from-[#1A202C]/10 via-[#2D3748]/10 to-[#4A5568]/10 flex items-center justify-center">
+    <div className="w-full py-12 md:py-24 overflow-hidden bg-gradient-to-r from-[#1A202C]/10 via-[#2D3748]/10 to-[#4A5568]/10">
       <style>{`
         @keyframes scroll {
           0% {
@@ -94,7 +105,7 @@ export function FoundingMembers() {
         }
 
         .scroll-container {
-          animation: scroll 40s linear infinite;
+          animation: scroll ${isMobile ? '20s' : '40s'} linear infinite;
         }
 
         .scroll-container:hover {
@@ -119,11 +130,18 @@ export function FoundingMembers() {
         .social-icon:hover {
           transform: translateY(-3px);
         }
+
+        @media (max-width: 768px) {
+          .founder-card:hover {
+            transform: translateY(-5px) scale(1.01);
+          }
+        }
       `}</style>
-      <div className="container max-w-7xl text-center ml-8">
-        <div className="mb-12">
-          <h2 className="text-4xl ml-20 font-bold mb-4 text-pink-300 whitespace-nowrap">Meet Our Founders</h2>
-          <p className="text-ml ml-20 text-muted-foreground">
+
+      <div className="container px-4 md:px-6 mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 md:mb-4 text-pink-300">Meet Our Founders</h2>
+          <p className="text-sm md:text-base text-muted-foreground">
             The visionaries behind AIVOLVE's groundbreaking AI technology
           </p>
         </div>
@@ -131,11 +149,11 @@ export function FoundingMembers() {
       
       <div
         ref={scrollerRef}
-        className="max-w-7xl mx-auto scroller relative overflow-hidden"
+        className="max-w-full md:max-w-7xl mx-auto scroller relative overflow-hidden"
       >
         <div
           ref={innerScrollerRef}
-          className="flex gap-4 py-4 scroll-container"
+          className="flex gap-2 md:gap-4 py-4 scroll-container"
           style={{
             willChange: 'transform',
           }}
@@ -143,11 +161,11 @@ export function FoundingMembers() {
           {duplicatedFounders.map((founder, idx) => (
             <Card
               key={`${founder.name}-${idx}`}
-              className="founder-card relative flex-shrink-0 w-[300px] overflow-hidden group bg-white"
+              className="founder-card relative flex-shrink-0 w-[250px] md:w-[300px] overflow-hidden group bg-white"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#FF4D9E]/10 via-[#A349E5]/10 to-[#4A90E2]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <CardContent className="p-6 z-10 relative">
-                <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden shadow-lg transform transition-transform duration-300 group-hover:scale-105">
+              <CardContent className="p-4 md:p-6 z-10 relative">
+                <div className="relative w-32 h-32 md:w-48 md:h-48 mx-auto mb-3 md:mb-4 rounded-full overflow-hidden shadow-lg transform transition-transform duration-300 group-hover:scale-105">
                   <img
                     src={founder.image}
                     alt={founder.name}
@@ -156,28 +174,28 @@ export function FoundingMembers() {
                 </div>
 
                 <div className="text-center transform transition-transform duration-300">
-                  <h3 className="text-xl font-semibold mb-1 text-gray-800 group-hover:text-pink-500">{founder.name}</h3>
-                  <p className="text-sm text-gray-600 mb-2 group-hover:text-purple-500">{founder.role}</p>
-                  <p className="text-sm text-gray-500 mb-4">{founder.bio}</p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1 text-gray-800 group-hover:text-pink-500">{founder.name}</h3>
+                  <p className="text-xs md:text-sm text-gray-600 mb-1 md:mb-2 group-hover:text-purple-500">{founder.role}</p>
+                  <p className="text-xs md:text-sm text-gray-500 mb-3 md:mb-4">{founder.bio}</p>
 
-                  <div className="flex justify-center gap-4">
+                  <div className="flex justify-center gap-3 md:gap-4">
                     <a
                       href={founder.links.twitter}
-                      className="social-icon p-2 rounded-full transition-all duration-200 hover:bg-[#FF4D9E]/10 text-[#FF4D9E]"
+                      className="social-icon p-1.5 md:p-2 rounded-full transition-all duration-200 hover:bg-[#FF4D9E]/10 text-[#FF4D9E]"
                     >
-                      <Twitter className="w-4 h-4" />
+                      <Twitter className="w-3 h-3 md:w-4 md:h-4" />
                     </a>
                     <a
                       href={founder.links.linkedin}
-                      className="social-icon p-2 rounded-full transition-all duration-200 hover:bg-[#A349E5]/10 text-[#A349E5]"
+                      className="social-icon p-1.5 md:p-2 rounded-full transition-all duration-200 hover:bg-[#A349E5]/10 text-[#A349E5]"
                     >
-                      <Linkedin className="w-4 h-4" />
+                      <Linkedin className="w-3 h-3 md:w-4 md:h-4" />
                     </a>
                     <a
                       href={founder.links.github}
-                      className="social-icon p-2 rounded-full transition-all duration-200 hover:bg-[#4A90E2]/10 text-[#4A90E2]"
+                      className="social-icon p-1.5 md:p-2 rounded-full transition-all duration-200 hover:bg-[#4A90E2]/10 text-[#4A90E2]"
                     >
-                      <Github className="w-4 h-4" />
+                      <Github className="w-3 h-3 md:w-4 md:h-4" />
                     </a>
                   </div>
                 </div>
