@@ -20,7 +20,7 @@ export function Hero() {
       </div>
 
       {/* Main content container - Adjusted padding for different screens */}
-      <div className="py-12 sm:py-20 lg:py-32">
+      <div className="py-12 sm:py-20 lg:py-32 mt-5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             {/* Announcement banner - Made responsive */}

@@ -11,7 +11,6 @@ import { AnnouncementPage } from './pages/Announcement';
 import { JobPage } from './pages/Jobs';
 //import { Login } from './pages/Login';
 import { GetStarted } from './pages/GetStarted';
-import { Demo } from './pages/LiveDemo';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
@@ -31,7 +30,7 @@ function App() {
           <Route path="/jobs" element={<JobPage />} />
           {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/get-started" element={<GetStarted />} />
-          <Route path="/demo" element={<Demo />} />
+    
         </Routes>
       </main>
       <Analytics />
