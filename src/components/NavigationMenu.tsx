@@ -7,7 +7,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Cross, Pencil } from "lucide-react";
+import { Bot,Camera } from "lucide-react";
 import React from "react";
 
 const components: { title: string; href: string; description: string; icon: React.ReactNode }[] = [
@@ -15,26 +15,26 @@ const components: { title: string; href: string; description: string; icon: Reac
     title: "Backdrop AI",
     href: "https://backdrop-ai-one.vercel.app/",
     description: "AI Powered Image Editor & with a twist of Background.",
-    icon: <Pencil className="h-6 w-6" />,
+    icon: <Camera className="h-6 w-6" />,
   },
   {
-    title: "Template",
-    href: "/products/nlp",
-    description: "Process and understand human language at scale.",
-    icon: <Cross className="h-6 w-6" />,
+    title: "SEAR",
+    href: "https://sear-frontend.vercel.app/",
+    description: "S.E.A.R - Synthetic Engineering Assistant For Resolution, Worlds First AI Assistant for Engineers Built on top of Decentralized Network.",
+    icon: <Bot className="h-6 w-6" />,
   },
-  {
-    title: "Template",
-    href: "/products/analytics",
-    description: "Data-driven insights for informed decision making.",
-    icon: <Cross className="h-6 w-6" />,
-  },
-  {
-    title: "Template",
-    href: "/services/consulting",
-    description: "Expert guidance for AI implementation.",
-    icon: <Cross className="h-6 w-6" />,
-  },
+  // {
+  //   title: "",
+  //   href: "/products/analytics",
+  //   description: "Data-driven insights for informed decision making.",
+  //   icon: <Cross className="h-6 w-6" />,
+  // },
+  // {
+  //   title: "Template",
+  //   href: "/services/consulting",
+  //   description: "Expert guidance for AI implementation.",
+  //   icon: <Cross className="h-6 w-6" />,
+  // },
 ];
 
 export function NavigationMenuDemo() {

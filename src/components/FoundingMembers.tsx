@@ -120,7 +120,6 @@ export function FoundingMembers() {
           transform: translateY(-3px);
         }
       `}</style>
-
       <div className="container max-w-7xl text-center ml-8">
         <div className="mb-12">
           <h2 className="text-4xl ml-20 font-bold mb-4 text-pink-300 whitespace-nowrap">Meet Our Founders</h2>
@@ -129,7 +128,7 @@ export function FoundingMembers() {
           </p>
         </div>
       </div>
-
+      
       <div
         ref={scrollerRef}
         className="max-w-7xl mx-auto scroller relative overflow-hidden"

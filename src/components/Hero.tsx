@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Brain } from "lucide-react";
+import { BrainCircuit, Network } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -48,7 +48,7 @@ export function Hero() {
                   <br />
                   <TypeAnimation
                     sequence={[
-                      "BUSINESS", 
+                      "BUSINESS",
                       1500,
                       "DEVELOPERS",
                       1000,
@@ -72,15 +72,25 @@ export function Hero() {
             </p>
             <br /><br /><br /><br /><br /><br /><br /><br /><br />
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg" className="gap-2 bg-primary hover:bg-primary/90">
-                <Brain className="h-5 w-5" />
-                Get Started
-              </Button>
-              <Link to="/demo">
-              <Button size="lg" variant="outline" className="border-secondary hover:bg-secondary/10 text-white">
-                Demo
-            </Button>
-            </Link>
+              <Link to="https://sear-frontend.vercel.app/">
+                <Button
+                  size="lg"
+                  className="gap-2 bg-primary hover:bg-primary/10 glow-transition">
+                  <BrainCircuit className="h-5 w-5" />
+                  S.E.A.R
+                </Button>
+              </Link>
+              <Link to="https://maintanencepage.vercel.app/">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-secondary hover:bg-secondary/10 text-white">
+                  <Network className="h-5 w-5 mr-3" />
+                  Demo
+                </Button>
+              </Link>
+
+
             </div>
           </div>
           <br />
