@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-background">
