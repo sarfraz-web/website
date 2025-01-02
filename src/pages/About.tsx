@@ -2,28 +2,28 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Brain, Users, Target, Award, Globe, Layers, UserPlus } from "lucide-react";
 
 export function About() {
-  const values = [
-    {
-      icon: <Award className="h-5 w-5 sm:h-6 sm:w-6 text-primary mt-1" />,
-      title: "Excellence",
-      description: "We aim for excellence in everything we do, from the technology we build to the services we provide. Our AI solutions are designed to help businesses thrive with cutting-edge capabilities while ensuring ease of use."
-    },
-    {
-      icon: <Users className="h-5 w-5 sm:h-6 sm:w-6 text-primary mt-1" />,
-      title: "Collaboration",
-      description: "Collaboration is at the heart of our success. We work closely with our clients to understand their unique challenges and provide AI solutions that not only integrate with their systems but also grow alongside their evolving needs."
-    },
-    {
-      icon: <Globe className="h-5 w-5 sm:h-6 sm:w-6 text-primary mt-1" />,
-      title: "Global Impact",
-      description: "Our goal is to shape the future of AI globally. We believe in the transformative power of AI to solve complex problems, improve industries, and enhance lives worldwide. By making AI more accessible, we contribute to a smarter, more sustainable future for all."
-    },
-    {
-      icon: <Layers className="h-5 w-5 sm:h-6 sm:w-6 text-primary mt-1" />,
-      title: "Innovation",
-      description: "Innovation is at the core of our work. We are constantly pushing the boundaries of what's possible with AI, continuously improving our technology to ensure it stays at the cutting edge and meets the needs of a rapidly changing world."
-    }
-  ];
+  // const values = [
+  //   {
+  //     icon: <Award className="h-5 w-5 sm:h-6 sm:w-6 text-primary mt-1" />,
+  //     title: "Excellence",
+  //     description: "We aim for excellence in everything we do, from the technology we build to the services we provide. Our AI solutions are designed to help businesses thrive with cutting-edge capabilities while ensuring ease of use."
+  //   },
+  //   {
+  //     icon: <Users className="h-5 w-5 sm:h-6 sm:w-6 text-primary mt-1" />,
+  //     title: "Collaboration",
+  //     description: "Collaboration is at the heart of our success. We work closely with our clients to understand their unique challenges and provide AI solutions that not only integrate with their systems but also grow alongside their evolving needs."
+  //   },
+  //   {
+  //     icon: <Globe className="h-5 w-5 sm:h-6 sm:w-6 text-primary mt-1" />,
+  //     title: "Global Impact",
+  //     description: "Our goal is to shape the future of AI globally. We believe in the transformative power of AI to solve complex problems, improve industries, and enhance lives worldwide. By making AI more accessible, we contribute to a smarter, more sustainable future for all."
+  //   },
+  //   {
+  //     icon: <Layers className="h-5 w-5 sm:h-6 sm:w-6 text-primary mt-1" />,
+  //     title: "Innovation",
+  //     description: "Innovation is at the core of our work. We are constantly pushing the boundaries of what's possible with AI, continuously improving our technology to ensure it stays at the cutting edge and meets the needs of a rapidly changing world."
+  //   }
+  // ];
 
   return (
     <div className="container mx-auto px-4 py-8 sm:py-16 lg:py-24">
