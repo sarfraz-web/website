@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, UserRound } from "lucide-react";
 
 const founders = [
   {
@@ -9,7 +9,7 @@ const founders = [
     image: "/Founders/Adnan.jpg",
     bio: "AI/ML Engineer & Entrepreneur",
     links: {
-      twitter: "https://twitter.com",
+      website: "https://www.adnanbaqi.tech",
       linkedin: "https://www.linkedin.com/in/buckybarns",
       github: "https://github.com/adnanbaqi"
     }
@@ -20,7 +20,7 @@ const founders = [
     image: "/Founders/Sarfraz.jpg",
     bio: "SOFTWARE ENGINEER",
     links: {
-      twitter: "https://twitter.com",
+      website: "https://portfolio-seven-inky-24.vercel.app",
       linkedin: "https://www.linkedin.com/in/mohammad-sarfraz-043118258",
       github: "https://github.com/sarfraz-web"
     }
@@ -31,7 +31,7 @@ const founders = [
     image: "/Founders/Aquib.jpg",
     bio: "B.tech in Computer Science & Engineering",
     links: {
-      twitter: "https://twitter.com",
+      website: "https://anaquib1110.github.io/Portfolio/",
       linkedin: "https://www.linkedin.com/in/aquib-jawed-1147ab164",
       github: "https://github.com/anaquib1110"
     }
@@ -42,7 +42,7 @@ const founders = [
     image: "/Founders/Gufran.jpg",
     bio: "B.tech in Computer Science & Engineering",
     links: {
-      twitter: "https://twitter.com",
+      website: "https://astronaut-portfolio-template.vercel.app/",
       linkedin: "https://www.linkedin.com/in/gufran-ahmad-siddiqui-232756278",
       github: "https://github.com/GufranSiddiqui0101"
     }
@@ -180,10 +180,10 @@ export function FoundingMembers() {
 
                   <div className="flex justify-center gap-3 md:gap-4">
                     <a
-                      href={founder.links.twitter}
+                      href={founder.links.website}
                       className="social-icon p-1.5 md:p-2 rounded-full transition-all duration-200 hover:bg-[#FF4D9E]/10 text-[#FF4D9E]"
                     >
-                      <Twitter className="w-3 h-3 md:w-4 md:h-4" />
+                      <UserRound className="w-3 h-3 md:w-4 md:h-4" />
                     </a>
                     <a
                       href={founder.links.linkedin}
