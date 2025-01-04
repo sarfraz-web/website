@@ -5,7 +5,7 @@ import { Github, Linkedin, UserRound } from "lucide-react";
 const founders = [
   {
     name: "Md Adnan Baqi",
-    role: "CEO & Co-founder",
+    role: "CEO & founder",
     image: "/Founders/Adnan.jpg",
     bio: "AI/ML Engineer & Entrepreneur",
     links: {
