@@ -29,7 +29,7 @@ const founders = [
     name: "Aquib Jawed",
     role: "Chief Research Officer",
     image: "/Founders/Aquib.jpg",
-    bio: "B.tech in Computer Science & Engineering",
+    bio: "Python Developer & Data Scientist",
     links: {
       website: "https://anaquib1110.github.io/Portfolio/",
       linkedin: "https://www.linkedin.com/in/aquib-jawed-1147ab164",
@@ -40,7 +40,7 @@ const founders = [
     name: "Gufran Ahmad Siddiqui",
     role: "Head of Product",
     image: "/Founders/Gufran.jpg",
-    bio: "B.tech in Computer Science & Engineering",
+    bio: "Full Stack Developer",
     links: {
       website: "https://astronaut-portfolio-template.vercel.app/",
       linkedin: "https://www.linkedin.com/in/gufran-ahmad-siddiqui-232756278",
