@@ -6,9 +6,9 @@ export function Footer() {
       <div className="container px-4 py-6 sm:py-8 md:py-12 mx-auto">
         <div className="grid grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
           {/* Logo and Social Links - Hidden on mobile */}
-          <div className="hidden md:flex flex-col items-center mr-8 space-y-4">
+          <div className="hidden md:flex flex-col items-left space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-white">AIVOLVE</h2>
-            <div className="flex space-x-4">
+            <div className="flex item-start ">
               <a
                 href="https://instagram.com/aivolve"
                 className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-muted/10"
