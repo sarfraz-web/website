@@ -4,10 +4,9 @@ export function Footer() {
   return (
     <footer className="bg-background border-t">
       <div className="container px-4 py-6 sm:py-8 md:py-12 mx-auto">
-        {/* Main footer content */}
-        <div className="flex flex-row md:grid md:grid-cols-4 gap-6 md:gap-8 overflow-x-auto pb-4 md:pb-0">
-          {/* Logo and Social Links */}
-          <div className="flex-shrink-0 min-w-[200px] flex flex-col items-center md:items-start space-y-4">
+        <div className="grid grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
+          {/* Logo and Social Links - Hidden on mobile */}
+          <div className="hidden md:flex flex-col items-center mr-8 space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-white">AIVOLVE</h2>
             <div className="flex space-x-4">
               <a
@@ -35,9 +34,9 @@ export function Footer() {
           </div>
 
           {/* Products */}
-          <div className="flex-shrink-0 min-w-[150px] flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-start">
             <h3 className="font-semibold mb-3 sm:mb-4 text-white text-base sm:text-lg">Products</h3>
-            <ul className="space-y-2 sm:space-y-3 text-center md:text-left">
+            <ul className="space-y-2 sm:space-y-3">
               <li>
                 <a
                   href="https://backdrop-ai-one.vercel.app/"
@@ -66,9 +65,9 @@ export function Footer() {
           </div>
 
           {/* Company */}
-          <div className="flex-shrink-0 min-w-[150px] flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-start">
             <h3 className="font-semibold mb-3 sm:mb-4 text-white text-base sm:text-lg">Company</h3>
-            <ul className="space-y-2 sm:space-y-3 text-center md:text-left">
+            <ul className="space-y-2 sm:space-y-3">
               <li>
                 <a
                   href="/blog"
@@ -97,9 +96,9 @@ export function Footer() {
           </div>
 
           {/* Legal */}
-          <div className="flex-shrink-0 min-w-[150px] flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-start">
             <h3 className="font-semibold mb-3 sm:mb-4 text-white text-base sm:text-lg">Legal</h3>
-            <ul className="space-y-2 sm:space-y-3 text-center md:text-left">
+            <ul className="space-y-2 sm:space-y-3">
               <li>
                 <a
                   href="/about"
@@ -128,9 +127,10 @@ export function Footer() {
           </div>
         </div>
       </div>
+
       {/* Copyright with Border */}
-      <div className="border-t mt-6 sm:mt-8 pt-4 sm:pt-8 text-center">
-        <p className="text-xs sm:text-sm text-muted-foreground">
+      <div className="border-t border-gray-400 opacity-75 sm:border-opacity-100 sm:border-gray-300 mt-6 sm:mt-8 pt-4 sm:pt-4 text-center">
+        <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb">
           &copy; {new Date().getFullYear()} AIVOLVE. All rights reserved.
         </p>
       </div>
