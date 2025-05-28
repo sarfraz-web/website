@@ -3,7 +3,7 @@ import { BrainCircuit, Network } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { TrustedByBanner } from "./TrustedByBanner";
+// import { TrustedByBanner } from "./TrustedByBanner";
 
 export function Hero() {
   return (
@@ -94,12 +94,12 @@ export function Hero() {
           </div>
 
           {/* Trusted by banner and screenshot - Responsive spacing */}
-          <div className="mt-16 sm:mt-24">
+          {/* <div className="mt-16 sm:mt-24">
             <TrustedByBanner />
-          </div>
+          </div> */}
           
           {/* Screenshot container - Responsive sizing and padding */}
-          <div className="mt-8 sm:mt-16 flex justify-center">
+          {/* <div className="mt-8 sm:mt-16 flex justify-center">
             <div className="relative w-full max-w-[996px] rounded-xl bg-gradient-to-r from-secondary/5 to-primary/5 p-2 sm:p-4 ring-1 ring-inset ring-gray-900/10">
               <img
                 src="/products/chat.png"
@@ -107,7 +107,7 @@ export function Hero() {
                 className="rounded-md shadow-2xl ring-1 ring-gray-900/10 w-full h-auto object-contain"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

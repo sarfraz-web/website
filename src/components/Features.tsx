@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, Code, LineChart, Users, Zap, Shield } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { FoundingMembers } from "@/components/FoundingMembers";
+// import { FoundingMembers } from "@/components/FoundingMembers";
 
 const features = [
   {
@@ -84,9 +84,9 @@ export function Features() {
           </div>
         </div>
       </div>
-      <div className="mt-12 sm:mt-16">
+      {/* <div className="mt-12 sm:mt-16">
         <FoundingMembers />
-      </div>
+      </div> */}
     </div>
   );
 }
