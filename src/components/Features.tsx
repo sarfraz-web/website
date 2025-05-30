@@ -1,14 +1,14 @@
 import { Card } from "@/components/ui/card";
-import { Image, ShoppingCart, FileCheck, Users, Zap, Shield } from "lucide-react";
+import { Image, ShoppingCart, FileCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 
 const features = [
   {
     name: "BackdropAI",
     description: "AI-powered generative tool for text-over-image creation using & font styling.",
     icon: Image,
-    url: "https://backdropai.com", // Add your actual URL here
+    url: "https://backdrop-ai-one.vercel.app/",
     gradient: "from-pink-500/20 to-purple-600/20",
     iconGradient: "from-pink-500 to-purple-600",
     borderGradient: "from-pink-500/50 to-purple-600/50",
@@ -17,7 +17,7 @@ const features = [
     name: "Bechdo.in",
     description: "Next-gen marketplace redefining how India buys and sells with KYC based authentication, speed and simplicity.",
     icon: ShoppingCart,
-    url: "https://bechdo.in", // Add your actual URL here
+    url: "https://bechdo.in",
     gradient: "from-blue-600/20 to-cyan-500/20",
     iconGradient: "from-blue-600 to-cyan-500",
     borderGradient: "from-blue-600/50 to-cyan-500/50",
@@ -26,240 +26,140 @@ const features = [
     name: "ClaimCheck",
     description: "An AI-powered web app that uses RAG to verify patent originality by semantically comparing user submissions with existing patents.",
     icon: FileCheck,
-    url: "https://claimcheck.app", // Add your actual URL here
+    url: "https://claimcheck.app",
     gradient: "from-cyan-500/20 to-pink-500/20",
     iconGradient: "from-cyan-500 to-pink-500",
     borderGradient: "from-cyan-500/50 to-pink-500/50",
   },
-  // {
-  //   name: "Expert Consulting",
-  //   description: "Get guidance from our team of AI experts to implement the right solutions.",
-  //   icon: Users,
-  //   gradient: "from-purple-600/20 to-blue-600/20",
-  //   iconGradient: "from-purple-600 to-blue-600",
-  //   borderGradient: "from-purple-600/50 to-blue-600/50",
-  // },
-  // {
-  //   name: "Lightning Fast",
-  //   description: "Optimized for performance with real-time processing capabilities.",
-  //   icon: Zap,
-  //   gradient: "from-pink-500/20 to-cyan-500/20",
-  //   iconGradient: "from-pink-500 to-cyan-500",
-  //   borderGradient: "from-pink-500/50 to-cyan-500/50",
-  // },
-  // {
-  //   name: "Enterprise Security",
-  //   description: "Bank-grade security with encrypted data transmission and storage.",
-  //   icon: Shield,
-  //   gradient: "from-blue-600/20 to-pink-600/20",
-  //   iconGradient: "from-blue-600 to-pink-600",
-  //   borderGradient: "from-blue-600/50 to-pink-600/50",
-  // },
 ];
 
-const GlitterParticles = ({ visibleCount }) => (
-  <div className="absolute inset-0 pointer-events-none overflow-hidden">
-    {/* Reduced main particles */}
-    {[...Array(8)].map((_, i) => (
-      <div
-        key={i}
-        className={cn(
-          "absolute w-0.5 h-0.5 bg-gradient-to-r from-pink-400 to-cyan-400 rounded-full transition-all duration-1000",
-          visibleCount > 2 ? "opacity-20 animate-pulse" : "opacity-5"
-        )}
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 5}s`,
-          animationDuration: `${4 + Math.random() * 3}s`
-        }}
-      />
-    ))}
-    
-    {/* Subtle glitter particles */}
-    {[...Array(12)].map((_, i) => (
-      <div
-        key={`glitter-${i}`}
-        className="absolute animate-pulse"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 4}s`,
-          animationDuration: `${2 + Math.random() * 2}s`
-        }}
-      >
-        <div className={cn(
-          "w-0.5 h-0.5 bg-white rounded-full opacity-30",
-          Math.random() > 0.7 && "bg-gradient-to-r from-pink-200 to-blue-200"
-        )} />
-      </div>
-    ))}
-    
-    {/* Minimal sparkle effects */}
-    {[...Array(6)].map((_, i) => (
-      <div
-        key={`sparkle-${i}`}
-        className="absolute animate-ping"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 6}s`,
-          animationDuration: `${3 + Math.random() * 2}s`
-        }}
-      >
-        <div className="w-0.5 h-0.5 bg-gradient-to-r from-yellow-200 to-white rounded-full opacity-25" />
-      </div>
-    ))}
-    
-    {/* Few twinkling stars */}
-    {[...Array(8)].map((_, i) => (
-      <div
-        key={`star-${i}`}
-        className="absolute text-white opacity-15 animate-pulse"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          fontSize: `${Math.random() * 4 + 3}px`,
-          animationDelay: `${Math.random() * 8}s`,
-          animationDuration: `${3 + Math.random() * 3}s`
-        }}
-      >
-        ✦
-      </div>
-    ))}
-  </div>
-);
+// Optimized glitter particles with fewer elements and better performance
+const GlitterParticles = ({ visibleCount }) => {
+  const particleCount = Math.min(8 + visibleCount * 2, 20);
+  
+  const particles = useMemo(() => 
+    [...Array(particleCount)].map((_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      delay: Math.random() * 5,
+      duration: 3 + Math.random() * 2,
+      type: i % 3 === 0 ? 'glitter' : i % 3 === 1 ? 'sparkle' : 'star'
+    }))
+  , [particleCount]);
 
-const FeatureCard = ({ feature, index, cardState }) => {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="absolute animate-pulse"
+          style={{
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+            animationDelay: `${particle.delay}s`,
+            animationDuration: `${particle.duration}s`
+          }}
+        >
+          {particle.type === 'star' ? (
+            <div className="text-white opacity-20 text-xs">✦</div>
+          ) : (
+            <div className={cn(
+              "w-0.5 h-0.5 rounded-full",
+              particle.type === 'glitter' 
+                ? "bg-gradient-to-r from-pink-400 to-cyan-400 opacity-30" 
+                : "bg-white opacity-20"
+            )} />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+// Optimized feature card with reduced complexity
+const FeatureCard = ({ feature, isVisible, isAnimated }) => {
   const IconComponent = feature.icon;
   
   const CardContent = () => (
     <>
-      {/* Animated gradient background */}
+      {/* Background gradient */}
       <div className={cn(
-        "absolute inset-0 bg-gradient-to-r transition-all duration-2000",
+        "absolute inset-0 bg-gradient-to-r transition-all duration-1000",
         feature.gradient,
-        cardState.animated ? "opacity-100 scale-100" : "opacity-0 scale-110"
+        isAnimated ? "opacity-100" : "opacity-0"
       )} />
       
-      {/* Animated border */}
+      {/* Border gradient */}
       <div className={cn(
-        "absolute inset-0 rounded-lg p-[1px] transition-all duration-1500",
-        cardState.animated 
+        "absolute inset-0 rounded-lg p-[1px] transition-all duration-1000",
+        isAnimated 
           ? "bg-gradient-to-r from-pink-500/40 via-blue-500/40 to-cyan-500/40" 
-          : "bg-gradient-to-r from-transparent via-gray-700/50 to-transparent"
+          : "bg-gradient-to-r from-gray-700/30 to-gray-700/30"
       )}>
         <div className="bg-black/90 rounded-lg w-full h-full" />
       </div>
 
-      {/* Sliding reveal effect */}
-      <div className={cn(
-        "absolute inset-0 bg-gradient-to-r from-black via-transparent to-black transition-all duration-2000 ease-out opacity-50",
-        cardState.animated ? "translate-x-full opacity-0" : "translate-x-0 opacity-50"
-      )} />
-
-      <div className="relative z-10 p-8">
-        <div className="flex items-center gap-6">
-          {/* Icon section */}
-          <div className="flex-shrink-0">
+      <div className="relative z-10 p-6 lg:p-8">
+        <div className="flex items-center gap-4 lg:gap-6">
+          {/* Icon */}
+          <div className={cn(
+            "relative p-3 lg:p-4 rounded-xl bg-gray-800/50 transition-all duration-1000",
+            isAnimated && "scale-110 shadow-2xl"
+          )}>
             <div className={cn(
-              "relative p-4 rounded-2xl transition-all duration-1500 transform-gpu",
-              "bg-gradient-to-br shadow-lg from-gray-800/50 to-gray-900/50",
-              cardState.animated && "scale-110 rotate-3 shadow-2xl from-gray-800/80 to-gray-900/80"
-            )}>
-              <div className={cn(
-                "absolute inset-0 rounded-2xl bg-gradient-to-br transition-all duration-1500",
-                feature.iconGradient,
-                cardState.animated ? "opacity-60" : "opacity-20"
-              )} />
-              
-              <div className={cn(
-                "absolute inset-0 rounded-2xl bg-gradient-to-br blur-md transition-all duration-1500",
-                feature.iconGradient,
-                cardState.animated ? "opacity-40 scale-110" : "opacity-0"
-              )} />
-              
-              <IconComponent className={cn(
-                "relative z-10 h-8 w-8 text-white transition-all duration-1000",
-                cardState.animated && "drop-shadow-lg scale-110"
-              )} />
-            </div>
+              "absolute inset-0 rounded-xl bg-gradient-to-br transition-all duration-1000",
+              feature.iconGradient,
+              isAnimated ? "opacity-60" : "opacity-20"
+            )} />
+            <IconComponent className="relative z-10 h-6 w-6 lg:h-8 lg:w-8 text-white" />
           </div>
 
-          {/* Content section */}
-          <div className={cn(
-            "flex-1 min-w-0 transform transition-all duration-1200",
-            cardState.animated && "translate-x-2"
-          )}>
+          {/* Content */}
+          <div className="flex-1 min-w-0">
             <h3 className={cn(
-              "text-2xl font-bold transition-all duration-1000 transform-gpu",
-              cardState.animated 
-                ? "bg-gradient-to-r from-pink-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent scale-105" 
+              "text-xl lg:text-2xl font-bold transition-all duration-1000",
+              isAnimated 
+                ? "bg-gradient-to-r from-pink-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent" 
                 : "text-white"
             )}>
               {feature.name}
             </h3>
             <p className={cn(
-              "text-lg leading-relaxed transition-all duration-1000 transform",
-              cardState.animated 
-                ? "text-gray-200 translate-y-1" 
-                : "text-gray-400"
+              "text-base lg:text-lg leading-relaxed mt-1 transition-all duration-1000",
+              isAnimated ? "text-gray-200" : "text-gray-400"
             )}>
               {feature.description}
             </p>
           </div>
 
-          {/* Decorative element */}
+          {/* Accent bar */}
           <div className={cn(
-            "flex-shrink-0 transition-all duration-1500 transform relative",
-            cardState.animated 
-              ? "opacity-100 translate-x-0 scale-110" 
-              : "opacity-0 translate-x-8"
-          )}>
-            <div className={cn(
-              "w-2 h-20 rounded-full bg-gradient-to-b shadow-lg",
-              feature.iconGradient
-            )} />
-            <div className={cn(
-              "w-1 h-16 rounded-full bg-gradient-to-b absolute top-2 left-0.5 opacity-60 blur-sm",
-              feature.iconGradient
-            )} />
-          </div>
+            "w-1 h-16 lg:h-20 rounded-full bg-gradient-to-b transition-all duration-1000",
+            feature.iconGradient,
+            isAnimated ? "opacity-100 scale-110" : "opacity-0 scale-90"
+          )} />
         </div>
       </div>
 
       {/* Glow effect */}
       <div className={cn(
-        "absolute -inset-1 rounded-lg blur-lg transition-all duration-2000 z-0",
+        "absolute -inset-1 rounded-lg blur-lg transition-all duration-1000",
         "bg-gradient-to-r",
         feature.borderGradient,
-        cardState.animated ? "opacity-50" : "opacity-0"
+        isAnimated ? "opacity-40" : "opacity-0"
       )} />
-      
-      {/* Ripple effect */}
-      {cardState.animated && (
-        <div className="absolute inset-0 rounded-lg opacity-20">
-          <div className={cn(
-            "absolute inset-0 rounded-lg animate-ping bg-gradient-to-r",
-            feature.iconGradient
-          )} style={{ 
-            animationDuration: '3s', 
-            animationIterationCount: '2',
-            animationDelay: '0.5s'
-          }} />
-        </div>
-      )}
     </>
   );
   
   return (
-    <Card className="group relative overflow-hidden bg-gradient-to-r from-gray-900/50 via-black/80 to-gray-900/50 border-0 shadow-lg">
+    <Card className="relative overflow-hidden bg-gray-900/50 border-0 shadow-lg transition-transform duration-300 hover:scale-[1.02]">
       {feature.url ? (
         <a 
           href={feature.url} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="block w-full h-full cursor-pointer"
+          className="block w-full h-full"
         >
           <CardContent />
         </a>
@@ -271,66 +171,80 @@ const FeatureCard = ({ feature, index, cardState }) => {
 };
 
 export function Features() {
-  const [cardStates, setCardStates] = useState({});
-  const cardRefs = useRef([]);
-  const timeoutRefs = useRef({});
+  const [visibleCards, setVisibleCards] = useState(new Set());
+  const [animatedCards, setAnimatedCards] = useState(new Set());
+  const observerRef = useRef(null);
+  const timeoutsRef = useRef(new Map());
 
-  const updateCardState = useCallback((index, visible, animated) => {
-    setCardStates(prev => ({
-      ...prev,
-      [index]: { visible, animated }
-    }));
-  }, []);
-
+  // Optimized intersection observer with single instance
   useEffect(() => {
-    const observers = [];
-    
-    cardRefs.current.forEach((ref, index) => {
-      if (ref) {
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              updateCardState(index, true, false);
-              
-              if (timeoutRefs.current[index]) {
-                clearTimeout(timeoutRefs.current[index]);
-              }
-              
-              timeoutRefs.current[index] = setTimeout(() => {
-                updateCardState(index, true, true);
-              }, index * 150 + 200);
-              
-            } else {
-              if (timeoutRefs.current[index]) {
-                clearTimeout(timeoutRefs.current[index]);
-              }
-              updateCardState(index, false, false);
-            }
-          },
-          { 
-            threshold: 0.2,
-            rootMargin: '-100px 0px -100px 0px'
-          }
-        );
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        const index = parseInt(entry.target.dataset.index);
         
-        observer.observe(ref);
-        observers.push(observer);
-      }
+        if (entry.isIntersecting) {
+          setVisibleCards(prev => new Set([...prev, index]));
+          
+          // Clear existing timeout
+          if (timeoutsRef.current.has(index)) {
+            clearTimeout(timeoutsRef.current.get(index));
+          }
+          
+          // Set animation timeout
+          const timeout = setTimeout(() => {
+            setAnimatedCards(prev => new Set([...prev, index]));
+            timeoutsRef.current.delete(index);
+          }, index * 100 + 200);
+          
+          timeoutsRef.current.set(index, timeout);
+        } else {
+          setVisibleCards(prev => {
+            const newSet = new Set(prev);
+            newSet.delete(index);
+            return newSet;
+          });
+          setAnimatedCards(prev => {
+            const newSet = new Set(prev);
+            newSet.delete(index);
+            return newSet;
+          });
+          
+          // Clear timeout
+          if (timeoutsRef.current.has(index)) {
+            clearTimeout(timeoutsRef.current.get(index));
+            timeoutsRef.current.delete(index);
+          }
+        }
+      });
+    };
+
+    observerRef.current = new IntersectionObserver(handleIntersection, {
+      threshold: 0.2,
+      rootMargin: '-50px 0px -50px 0px'
     });
 
-    return () => {
-      observers.forEach(observer => observer.disconnect());
-      Object.values(timeoutRefs.current).forEach(timeout => clearTimeout(timeout));
-    };
-  }, [updateCardState]);
+    // Observe all cards
+    const cards = document.querySelectorAll('[data-feature-card]');
+    cards.forEach(card => observerRef.current.observe(card));
 
-  const visibleCount = Object.values(cardStates).filter(state => state.visible).length;
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+      // Clear all timeouts
+      timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+      timeoutsRef.current.clear();
+    };
+  }, []);
+
+  const visibleCount = visibleCards.size;
 
   return (
     <div className="min-h-screen py-16 bg-black relative">
       <GlitterParticles visibleCount={visibleCount} />
       
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-sm font-semibold leading-7 bg-gradient-to-r from-pink-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent uppercase tracking-wider">
             Everything you need
@@ -343,35 +257,33 @@ export function Features() {
           </p>
         </div>
 
-        <div className="space-y-12">
-          {features.map((feature, index) => {
-            const cardState = cardStates[index] || { visible: false, animated: false };
-            
-            return (
-              <div
-                key={feature.name}
-                ref={el => cardRefs.current[index] = el}
-                className={cn(
-                  "transform transition-all duration-1000 ease-out",
-                  cardState.visible 
-                    ? "opacity-100 translate-y-0 scale-100" 
-                    : "opacity-0 translate-y-20 scale-95"
-                )}
-              >
-                <FeatureCard 
-                  feature={feature} 
-                  index={index} 
-                  cardState={cardState} 
-                />
-              </div>
-            );
-          })}
+        {/* Feature cards */}
+        <div className="space-y-8 lg:space-y-12">
+          {features.map((feature, index) => (
+            <div
+              key={feature.name}
+              data-feature-card
+              data-index={index}
+              className={cn(
+                "transform transition-all duration-700 ease-out",
+                visibleCards.has(index)
+                  ? "opacity-100 translate-y-0" 
+                  : "opacity-0 translate-y-8"
+              )}
+            >
+              <FeatureCard 
+                feature={feature}
+                isVisible={visibleCards.has(index)}
+                isAnimated={animatedCards.has(index)}
+              />
+            </div>
+          ))}
         </div>
 
-        {/* Scroll progress indicator */}
-        <div className="fixed top-0 left-0 w-full h-1 bg-gray-800 z-50">
+        {/* Progress indicator */}
+        <div className="fixed top-0 left-0 w-full h-1 bg-gray-800/50 z-50">
           <div 
-            className="h-full bg-gradient-to-r from-pink-500 via-blue-500 to-cyan-500 transition-all duration-300"
+            className="h-full bg-gradient-to-r from-pink-500 via-blue-500 to-cyan-500 transition-all duration-500 ease-out"
             style={{ width: `${(visibleCount / features.length) * 100}%` }}
           />
         </div>
