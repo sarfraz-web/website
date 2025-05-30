@@ -1,9 +1,19 @@
 import { Card } from "@/components/ui/card";
-import { Image, ShoppingCart, FileCheck } from "lucide-react";
+import { Image, ShoppingCart, FileCheck, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 
-const features = [
+interface Feature {
+  name: string;
+  description: string;
+  icon: LucideIcon;
+  url: string;
+  gradient: string;
+  iconGradient: string;
+  borderGradient: string;
+}
+
+const features: Feature[] = [
   {
     name: "BackdropAI",
     description: "AI-powered generative tool for text-over-image creation using & font styling.",
@@ -33,11 +43,24 @@ const features = [
   },
 ];
 
+interface Particle {
+  id: number;
+  x: number;
+  y: number;
+  delay: number;
+  duration: number;
+  type: 'glitter' | 'sparkle' | 'star';
+}
+
+interface GlitterParticlesProps {
+  visibleCount: number;
+}
+
 // Optimized glitter particles with fewer elements and better performance
-const GlitterParticles = ({ visibleCount }) => {
+const GlitterParticles = ({ visibleCount }: GlitterParticlesProps) => {
   const particleCount = Math.min(8 + visibleCount * 2, 20);
   
-  const particles = useMemo(() => 
+  const particles: Particle[] = useMemo(() => 
     [...Array(particleCount)].map((_, i) => ({
       id: i,
       x: Math.random() * 100,
@@ -77,8 +100,14 @@ const GlitterParticles = ({ visibleCount }) => {
   );
 };
 
+interface FeatureCardProps {
+  feature: Feature;
+  isVisible: boolean;
+  isAnimated: boolean;
+}
+
 // Optimized feature card with reduced complexity
-const FeatureCard = ({ feature, isVisible, isAnimated }) => {
+const FeatureCard = ({ feature, isAnimated }: FeatureCardProps) => {
   const IconComponent = feature.icon;
   
   const CardContent = () => (
@@ -171,16 +200,16 @@ const FeatureCard = ({ feature, isVisible, isAnimated }) => {
 };
 
 export function Features() {
-  const [visibleCards, setVisibleCards] = useState(new Set());
-  const [animatedCards, setAnimatedCards] = useState(new Set());
-  const observerRef = useRef(null);
-  const timeoutsRef = useRef(new Map());
+  const [visibleCards, setVisibleCards] = useState(new Set<number>());
+  const [animatedCards, setAnimatedCards] = useState(new Set<number>());
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const timeoutsRef = useRef(new Map<number, NodeJS.Timeout>());
 
   // Optimized intersection observer with single instance
   useEffect(() => {
-    const handleIntersection = (entries) => {
-      entries.forEach((entry) => {
-        const index = parseInt(entry.target.dataset.index);
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        const index = parseInt((entry.target as HTMLElement).dataset.index || '0');
         
         if (entry.isIntersecting) {
           setVisibleCards(prev => new Set([...prev, index]));
@@ -225,7 +254,11 @@ export function Features() {
 
     // Observe all cards
     const cards = document.querySelectorAll('[data-feature-card]');
-    cards.forEach(card => observerRef.current.observe(card));
+    cards.forEach(card => {
+      if (observerRef.current) {
+        observerRef.current.observe(card);
+      }
+    });
 
     return () => {
       if (observerRef.current) {
